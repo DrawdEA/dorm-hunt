@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  
+
+  
+
+  <div class="section-1-container section-container p-5">
+    {% if form.errors %}
+    <div class="text-center p-2">
+      <p>Your username and password didn't match. Please try again.</p>
+    </div>
+    
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <div class="text-center p-2">
+        <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+      </div>
+    {% else %}
+      <div class="text-center p-2">
+        <p>Please login to see this page.</p>
+      </div>
+    {% endif %}
+  {% endif %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-10 offset-1 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
+          <div class="div-to-align">
+            <form method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+              </div>
+              <div class="text-center p-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

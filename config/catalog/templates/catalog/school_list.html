@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    
+    <div class="p-2">
+        <h2>All Schools</h2>
+        {% if school_list %}
+            {% for school in school_list %}
+                <class class="card p-2 mb-2">
+                    <h4 class="card-title">{{ school.name }}</h4>
+                    <a class="card-lin" href="{{ school.get_absolute_url }}">Detailed View</a>   
+                </class>
+            {% endfor %}
+        {% else %}
+            <p>No schools.</p>
+        {% endif %}
+    </div>
+            
+{% endblock %}

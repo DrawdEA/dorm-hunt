@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    
+    <div class="p-2">
+        <h2>All Dorms</h2>
+        
+        {% if dorm_list %}
+            {% for dorm in dorm_list %}
+                <div class="card p-2 mb-2">
+                    <div class="body p-1">
+                        <h4 class="card-title">{{ dorm.name }}</h4>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ dorm.display_school }}</h6>
+                        <p class="card-text">{{ dorm.description }}</p>
+                        <a href="{{ dorm.get_absolute_url }}">Detailed View</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No dorms.</p>
+        {% endif %}
+    </div>
+    
+{% endblock %}

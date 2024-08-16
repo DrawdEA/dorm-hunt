@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Delete Vouch</h1>
+    <p>Are you sure you want to delete your vouch?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" action="" value="Yes, delete.">
+    </form>
+    {% endif %}
+{% endblock %}
+config/catalog/templates/catalog/vouch_confirm_delete.html config/catalog/templates/catalog/vouch_form.html

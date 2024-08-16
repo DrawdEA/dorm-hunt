@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div class="p-2">
+        <h2>{{ object.name }}</h2>
+        <ul>
+            <li>Description: {{ object.description }}</li>
+            <li>Location: {{ object.dorm_location }}</li>
+            <li>Schools: 
+                {% if object.schools.all %}
+                    {{ object.schools.all|join:", " }}
+                {% else %}
+                    No related items found.
+                {% endif %}
+            </li>
+        </ul>
+
+        <h3>Vouches:</h3>
+            {% for vouch in vouches %}
+                <div class="card p-2 mb-2">
+                    <h4 class="card-title">Vouch #{{ vouch.id }} | Rated by: {{ vouch.submitted_by }} | {{ vouch.dorm }}</h4>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Rating: {{ vouch.rating }}</h6>
+                    <p class="card-text">{{ vouch.review }}</p>
+                </div>
+            {% empty %}
+            <ul>
+                <li>No vouches available for this dorm.</li>
+            </ul>
+            {% endfor %}
+    </div>
+{% endblock %}

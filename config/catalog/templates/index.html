@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  
+
+  <div class="section-1-container section-container p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-10 offset-1 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
+          <div class="div-to-align">
+              <form class="form-inline p-5 col text-center" style="width: 36rem;" method="get" action="{% url 'dorms' %}">
+                <h5></h5>
+                <input class="form-control mr-sm-2" type="search" name="school" placeholder="Your School" aria-label="Search">
+                  <div class="p-2">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
